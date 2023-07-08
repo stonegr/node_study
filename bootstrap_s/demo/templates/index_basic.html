@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        display: flex;
+    }
+
+    #side {
+        background-color: aqua;
+        width: 30%;
+        height: 100vh;
+    }
+
+    #main {
+        background-color: beige;
+        width: 70%;
+        height: 100vh;
+    }
+
+    #mb {
+        display: none;
+    }
+
+    @media (max-width: 576px) {
+        #side {
+            display: none;
+        }
+
+        #main {
+            width: 100%;
+            height: 200ch;
+        }
+
+        #mb {
+            display: block;
+            position: fixed;
+            top: 50px;
+        }
+    }
+
+    /* #all {
+        background-color: rgb(42, 65, 194);
+        width: 100%;
+        height: 50px;
+    } */
+</style>
+
+<body>
+    <!-- <div id="all"> -->
+    <button id="mb">点我</button>
+    <div id="side">side</div>
+    <div id="main">main</div>
+    <!-- </div> -->
+    <!-- <div class="full-container" style="height: 100vh;">
+        <div class="row">
+            <div id="side" class="col-4">side</div>
+            <div id="main" class="col-8">main</div>
+        </div>
+    </div> -->
+</body>
+
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    // var it = setInterval('location.reload()', 1000)
+    $('#mb').click(function () {
+        $("#side").slideToggle("slow");
+    })
+</script>
+
+</html>

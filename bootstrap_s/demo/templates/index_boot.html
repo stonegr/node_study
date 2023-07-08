@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<style>
+    #side {
+        background-color: antiquewhite;
+    }
+
+    #main {
+        background-color: rgb(155, 98, 23);
+    }
+
+    #mb {
+        position: fixed;
+        top: 50px;
+        display: none;
+    }
+
+
+    @media (max-width: 576px) {
+        #side {
+            display: none;
+        }
+
+        #mb {
+            display: block;
+        }
+    }
+</style>
+
+<body>
+    <button id="mb">123</button>
+    <div class="full-container" style="height: 100vh;">
+        <div class="row">
+            <div id="side" class="col-sm-4">side</div>
+            <div id="main" class="col-12 col-sm-8">main</div>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    // var it = setInterval('location.reload()', 1000)
+    $('#mb').click(function () {
+        console.log('123')
+        $("#side").slideToggle("slow");
+    })
+</script>
+
+</html>
