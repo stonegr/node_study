@@ -13,6 +13,9 @@
             ],
             "cwd": "${fileDirname}",
             "console": "integratedTerminal",
+            "env": {
+                "NODE_PATH": "D:\\git项目\\node_moudel"
+            },
             "program": "${file}"
         }
     ]
