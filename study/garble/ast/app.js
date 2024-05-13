@@ -63,30 +63,34 @@ vistor1 = {
     //     path.replaceWithMultiple(types.valueToNode(array))
     // }
     // ------------------------
-    CallExpression(path) {
-        if (path.node.callee.name = "_0x4857") {
-            try {
-                r = eval(path.toString())
-                path.replaceInline(types.valueToNode(r))
-            } catch (error) {
+    // CallExpression(path) {
+    //     if (path.node.callee.name = "_0x4857") {
+    //         try {
+    //             r = eval(path.toString())
+    //             path.replaceInline(types.valueToNode(r))
+    //         } catch (error) {
 
-            }
-        }
-    },
+    //         }
+    //     }
+    // },
     // StringLiteral(path) {
     //     if (path.node.value.includes('0x')) {
     //         path.node.extra.raw = path.node.rawValue;
     //     }
 
     // },
-    BinaryExpression(path) {
-        let { left, operator, right } = path.node;
-        // 处理字符串拼接  var b = "he" + "llo"
-        if (types.isStringLiteral(left) && types.isStringLiteral(right) && operator == '+') {
-            console.log(path.toString())
-            let value = left.value + right.value
-            path.replaceWith(types.valueToNode(value))
-        }
+    // BinaryExpression(path) {
+    //     let { left, operator, right } = path.node;
+    //     // 处理字符串拼接  var b = "he" + "llo"
+    //     if (types.isStringLiteral(left) && types.isStringLiteral(right) && operator == '+') {
+    //         console.log(path.toString())
+    //         let value = left.value + right.value
+    //         path.replaceWith(types.valueToNode(value))
+    //     }
+    // }
+    // ------------------------------
+    FunctionDeclaration(path) {
+        console.log();
     }
 }
 
