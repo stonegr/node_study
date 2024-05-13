@@ -13,15 +13,15 @@ js_code = fs.readFileSync('baidu.js', { encoding: 'utf-8' })
 let ast = parse.parse(js_code);
 
 // 加载解密函数
-let top3_code = ''
-let null_ast = parse.parse('')
-for (let i = 0; i < 3; i++) {
-    top3_code += generator(ast.program.body[i]).code
-    ast.program.body[i] = null_ast
-}
-// console.log(top3_code)
-eval(top3_code)
-console.log(_0x4857('0x2a7'))
+// let top3_code = ''
+// let null_ast = parse.parse('')
+// for (let i = 0; i < 3; i++) {
+//     top3_code += generator(ast.program.body[i]).code
+//     // ast.program.body[i] = null_ast
+// }
+// // console.log(top3_code)
+// eval(top3_code)
+// console.log(_0x4857('0x2a7'))
 
 // 编写插件 进行ast语法树结构修改 替换还原代码
 // 处理编码
@@ -31,12 +31,12 @@ vistor1 = {
     //         p.node.name = 'ab'
     //     }
     // },
-    StringLiteral(path) {
-        if (path.node.value.includes('0x')) {
-            path.node.extra.raw = path.node.rawValue;
-        }
+    // StringLiteral(path) {
+    //     if (path.node.value.includes('0x')) {
+    //         path.node.extra.raw = path.node.rawValue;
+    //     }
 
-    },
+    // },
 
     // ------------------------
     // BinaryExpression(path) {
@@ -71,6 +71,21 @@ vistor1 = {
             } catch (error) {
 
             }
+        }
+    },
+    // StringLiteral(path) {
+    //     if (path.node.value.includes('0x')) {
+    //         path.node.extra.raw = path.node.rawValue;
+    //     }
+
+    // },
+    BinaryExpression(path) {
+        let { left, operator, right } = path.node;
+        // 处理字符串拼接  var b = "he" + "llo"
+        if (types.isStringLiteral(left) && types.isStringLiteral(right) && operator == '+') {
+            console.log(path.toString())
+            let value = left.value + right.value
+            path.replaceWith(types.valueToNode(value))
         }
     }
 }
