@@ -17,6 +17,16 @@
                 "NODE_PATH": "D:\\git项目\\node_moudel"
             },
             "program": "${file}"
-        }
+        },
+        {
+            "name": "测试文件",
+            "program": "${file}",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "console": "integratedTerminal",
+            "type": "node"
+        },
     ]
 }
